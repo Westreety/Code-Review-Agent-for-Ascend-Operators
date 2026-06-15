@@ -18,6 +18,7 @@ We are designing a Code Review Agent project for Ascend Huawei Ascend operators.
 
 - **v1.0**：8 大类 35 种，覆盖 op_api → op_host → op_kernel 三层架构
 - **v2.0**：9 大类 43 种，新增分布式通信类、Cube/Vector 精度截断、L1/UB 超限、死锁、Padding 污染等
+- **v3.0**：11 大类 56 种，新增编译器静默错误、硬件 SDC，扩充 TQue 死锁、UB 对齐、流毒化、Barrier 死锁等
 
 ## 目录结构
 
@@ -26,7 +27,8 @@ We are designing a Code Review Agent project for Ascend Huawei Ascend operators.
 ├── PROJECT_SUMMARY.md                  # 项目工作总结
 ├── error_taxonomy/                     # 错误分类体系
 │   ├── ERROR_TAXONOMY_v1.0.md          # v1.0：8大类35种（op_api/op_host/op_kernel）
-│   └── ERROR_TAXONOMY_v2.0.md          # v2.0：9大类43种（新增分布式通信等）
+│   ├── ERROR_TAXONOMY_v2.0.md          # v2.0：9大类43种（新增分布式通信等）
+│   └── ERROR_TAXONOMY_v3.0.md          # v3.0：11大类56种（新增编译器、硬件SDC等）
 ├── agent_arena/                        # Agent 评测主目录
 │   ├── eval_prompt.md                  # 评测提示词
 │   ├── cases/                          # 评测用例
