@@ -216,3 +216,40 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ===================
+# AscendC / CANN 算子工程
+# ===================
+
+# CMake 构建目录（常见于昇腾算子样例）
+cmake-build-*/
+
+# CANN 编译中间产物
+kernel_meta/
+debug_workspace/
+
+# 常见编译输出目录
+build/
+build_out/
+output/
+out/
+
+# 编译生成的二进制 / 动态库
+*.o
+*.obj
+*.a
+*.so
+*.so.*
+
+# 可选：如果你不把生成代码纳入仓库
+# op_host/gen_*
+# op_kernel/impl_*
+
+# ===================
+# 你当前项目（Agent）的补充
+# ===================
+
+# 本地运行/调试临时文件
+tmp/
+*.tmp
+*.bak
