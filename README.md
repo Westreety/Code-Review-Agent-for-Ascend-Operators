@@ -44,10 +44,6 @@ We are designing a Code Review Agent project for AscendC Huawei Ascend operators
 
 ## TODO
 
-- [ ] 完成 op_api 层剩余 10 种错误类型的注入 case
-- [ ] 完成八类 Heisenbug（8.3 Tiling 分块重叠）的注入与评测
-- [ ] 设计 op_host 层（Tiling 策略）错误注入 case
-- [ ] 设计 op_kernel 层（计算执行）错误注入 case
-- [ ] 完成 Agent 评分体系（覆盖率、精度、误报率）
-- [ ] 将评测框架扩展到其他 CANN 算子（Add、Div 等）
-- [ ] 集成到 CI/CD 流水线，实现自动化评测
+- [ ] 更多错误类型的注入（完善整个Pipeline）
+- [ ] 将评测框架扩展到其他 CANN 算子
+- [ ] 完善错误体系
