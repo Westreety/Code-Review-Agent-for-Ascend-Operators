@@ -8,7 +8,7 @@ We are designing a Code Review Agent project for AscendC Huawei Ascend operators
 
 ## 项目概述
 
-本项目基于华为昇腾 CANN 平台的 Mul 算子（逐元素乘法），构建了一套完整的**算子错误分类体系**和**Agent 代码审查评测框架**。通过系统性地注入不同类型错误，评估 AI Code Review Agent 的 bug 发现能力；同时使用无注入的原始代码，验证 Agent 能否发现源码中固有的缺陷。
+本项目基于华为昇腾 CANN 平台的算子（目前以Mul算子为例），构建了一套完整的**算子错误分类体系**和**Agent 代码审查评测框架**。通过系统性地注入不同类型错误，评估 AI Code Review Agent 的 bug 发现能力；同时使用无注入的原始代码，验证 Agent 能否发现源码中固有的缺陷。
 
 **核心目标**：量化评估 AI Agent 在 NPU 算子代码审查中的能力边界。
 
