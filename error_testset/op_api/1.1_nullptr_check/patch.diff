@@ -1,0 +1,8 @@
+--- a/math/mul/op_api/aclnn_mul.cpp
++++ b/math/mul/op_api/aclnn_mul.cpp
+@@ -143,7 +143,7 @@ inline static bool CheckMulNotNull(...)
+   OP_CHECK_NULL(self, return false);
+   OP_CHECK_NULL(other, return false);
+-  OP_CHECK_NULL(out, return false);
++  (void)out;
+   return true;

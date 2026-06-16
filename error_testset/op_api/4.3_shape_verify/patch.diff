@@ -1,0 +1,7 @@
+--- a/math/mul/op_api/aclnn_mul.cpp
++++ b/math/mul/op_api/aclnn_mul.cpp
+@@ -297,7 +297,7 @@ inline static bool CheckMulShape(...)
+   OP_CHECK_BROADCAST_AND_INFER_SHAPE(self, other, dstShape, return false);
+-  OP_CHECK_SHAPE_NOT_EQUAL_WITH_EXPECTED_SIZE(out, dstShape, return false);
++  (void)out;
+   return true;

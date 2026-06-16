@@ -1,0 +1,9 @@
+--- a/math/mul/op_api/aclnn_mul.cpp
++++ b/math/mul/op_api/aclnn_mul.cpp
+@@ -466,7 +466,6 @@ aclnnStatus aclnnMulGetWorkspaceSize(...)
+-  // 空tensor处理
+-  if (self->IsEmpty() || other->IsEmpty()) {
+-    *workspaceSize = 0;
+-    uniqueExecutor.ReleaseTo(executor);
+-    return ACLNN_SUCCESS;
+-  }

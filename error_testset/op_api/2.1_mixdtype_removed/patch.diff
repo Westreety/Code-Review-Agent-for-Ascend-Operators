@@ -1,0 +1,7 @@
+--- a/math/mul/op_api/aclnn_mul.cpp
++++ b/math/mul/op_api/aclnn_mul.cpp
+@@ -465,6 +465,7 @@ aclnnStatus aclnnMulGetWorkspaceSize(...)
+   MulCheckFormat(self, other);
++  if (self->GetDataType() == DataType::DT_DOUBLE) return ACLNN_ERR_PARAM_INVALID;
+ 
+   // 空tensor处理
