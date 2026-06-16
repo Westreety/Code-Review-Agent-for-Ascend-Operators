@@ -44,8 +44,17 @@ We are designing a Code Review Agent project for Ascend Huawei Ascend operators.
 
 详见 `PROJECT_SUMMARY.md`。
 
+## 更新日志
+
+| 日期 | 内容 |
+|------|------|
+| 2026-06-16 | 目录结构重构：`error_testset/` 改为分层命名（`op_api/编号_名称`），`agent_arena/cases/` 改为纯编号盲审（`op_api/A0X`），新增 `INDEX.md` 映射表。`deploy.sh` 和 `run_all_cases.sh` 适配新路径。 |
+| 2026-06-15 | 错误分类体系升级至 v3.0（11 大类 56 种），新增编译器静默错误、硬件 SDC 等。 |
+| 2026-06-11 | 完成 4 个 op_api 层注入 case（case_01~04），2 轮无注入 baseline（case_00/2.0），自定义算子 Heisenbug 探索。 |
+
 ## TODO
 
-- [ ] 更多错误类型的注入（完善整个Pipeline）
+- [ ] 更多错误类型的注入（完善整个 Pipeline）
+- [ ] op_host 层和 op_kernel 层错误注入
 - [ ] 将评测框架扩展到其他 CANN 算子
 - [ ] 完善错误体系
