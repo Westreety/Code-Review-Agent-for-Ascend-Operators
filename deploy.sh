@@ -73,28 +73,44 @@ cd "${MUL_DIR}"
 \cp op_api/aclnn_mul.cpp op_api/aclnn_mul.cpp.bak
 
 # 根据 case 执行对应的注入
-case "$CASE" in
-    case_01_nullptr_check|1.1_nullptr_check)
-        sed -i 's/OP_CHECK_NULL(out, return false);/(void)out;/' op_api/aclnn_mul.cpp
-        touch op_api/aclnn_mul.cpp
-        ;;
-    case_02_output_shape|4.3_shape_verify)
-        sed -i 's/OP_CHECK_SHAPE_NOT_EQUAL_WITH_EXPECTED_SIZE(out, dstShape, return false);/(void)out;/' op_api/aclnn_mul.cpp
-        touch op_api/aclnn_mul.cpp
-        ;;
-    case_03_tiling_missing|2.1_mixdtype_removed)
-        sed -i '/MulCheckFormat(self, other);/a\
-  if (self->GetDataType() == DataType::DT_DOUBLE) return ACLNN_ERR_PARAM_INVALID;' op_api/aclnn_mul.cpp
-        touch op_api/aclnn_mul.cpp
-        ;;
-    case_04_empty_tensor|3.2_empty_tensor)
-        sed -i '/\/\/ 空tensor处理$/,/^  }/{ /\/\/ 空tensor处理$/!{ /^  }/!d; }; /^  }/d }' op_api/aclnn_mul.cpp
-        touch op_api/aclnn_mul.cpp
-        ;;
-    *)
-        echo "未知 case: $CASE，跳过注入"
-        ;;
-esac
+	case "$CASE" in
+	    01_1.1_nullptr_check|case_01_nullptr_check|1.1_nullptr_check)
+	        sed -i 's/OP_CHECK_NULL(out, return false);/(void)out;/' op_api/aclnn_mul.cpp
+	        touch op_api/aclnn_mul.cpp
+	        ;;
+	    02_4.3_shape_verify|case_02_output_shape|4.3_shape_verify)
+	        sed -i 's/OP_CHECK_SHAPE_NOT_EQUAL_WITH_EXPECTED_SIZE(out, dstShape, return false);/(void)out;/' op_api/aclnn_mul.cpp
+	        touch op_api/aclnn_mul.cpp
+	        ;;
+	    03_2.1_mixdtype_removed|case_03_tiling_missing|2.1_mixdtype_removed)
+	        sed -i '/MulCheckFormat(self, other);/a\
+	  if (self->GetDataType() == DataType::DT_DOUBLE) return ACLNN_ERR_PARAM_INVALID;' op_api/aclnn_mul.cpp
+	        touch op_api/aclnn_mul.cpp
+	        ;;
+	    04_3.2_empty_tensor|case_04_empty_tensor|3.2_empty_tensor)
+	        sed -i '/\/\/ 空tensor处理$/,/^  }/{ /\/\/ 空tensor处理$/!{ /^  }/!d; }; /^  }/d }' op_api/aclnn_mul.cpp
+	        touch op_api/aclnn_mul.cpp
+	        ;;
+	    05_1.2_dtype_whitelist|1.2_dtype_whitelist)
+	        sed -i '/DT_DOUBLE,/s/        DataType::DT_DOUBLE, //' op_api/aclnn_mul.cpp
+	        touch op_api/aclnn_mul.cpp
+	        ;;
+	    06_1.3_dtype_overwide|1.3_dtype_overwide)
+	        sed -i '/DT_BOOL,/s/DataType::DT_BOOL/DataType::DT_BOOL, DataType::DT_UINT32/' op_api/aclnn_mul.cpp
+	        touch op_api/aclnn_mul.cpp
+	        ;;
+	    07_1.4_errorcode_masking|1.4_errorcode_masking)
+	        sed -i 's/CHECK_RET(CheckMulNotNull(self, other, out), ACLNN_ERR_PARAM_NULLPTR)/CHECK_RET(CheckMulNotNull(self, other, out), ACLNN_SUCCESS)/' op_api/aclnn_mul.cpp
+	        touch op_api/aclnn_mul.cpp
+	        ;;
+	    08_4.2_dim_check|4.2_dim_check)
+	        sed -i '/OP_CHECK_MAX_DIM(self, MAX_SUPPORT_DIMS_NUMS, return false);/d; /OP_CHECK_MAX_DIM(other, MAX_SUPPORT_DIMS_NUMS, return false);/d' op_api/aclnn_mul.cpp
+	        touch op_api/aclnn_mul.cpp
+	        ;;
+	    *)
+	        echo "未知 case: $CASE，跳过注入"
+	        ;;
+	esac
 
 # 2. 编译
 echo "[2/3] 编译算子..."

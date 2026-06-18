@@ -1,0 +1,7 @@
+--- a/math/mul/op_api/aclnn_mul.cpp
++++ b/math/mul/op_api/aclnn_mul.cpp
+@@ -292,7 +292,7 @@
+ inline static bool CheckMulShape(...) {
+-  OP_CHECK_MAX_DIM(self, MAX_SUPPORT_DIMS_NUMS, return false);
+-  OP_CHECK_MAX_DIM(other, MAX_SUPPORT_DIMS_NUMS, return false);
+   OP_CHECK_BROADCAST_AND_INFER_SHAPE(self, other, dstShape, return false);

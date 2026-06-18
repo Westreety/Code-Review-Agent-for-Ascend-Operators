@@ -8,10 +8,14 @@
 |:--:|------|:--:|------|:--:|:--:|
 | **baseline/B01** | B01_no_inject | — | 无注入（官方原始代码） | — | ✅ |
 | **baseline/B02** | B02_no_inject | — | 无注入（独立重复实验） | — | ✅ |
-| **op_api/A01** | 1.1_nullptr_check | 1.1 | 空指针校验缺失 | op_api | ✅ |
-| **op_api/A02** | 4.3_shape_verify | 4.3 | 输出Shape校验缺失 | op_api | ✅ |
-| **op_api/A03** | 2.1_mixdtype_removed | 2.1 | 混合精度组合被误删 | op_api | ⚠️ 分类存疑 |
-| **op_api/A04** | 3.2_empty_tensor | 3.2 | 空Tensor处理遗漏 | op_api | ✅ |
+| **op_api/A01** | 01_1.1_nullptr_check | 1.1 | 空指针校验缺失 | op_api | ✅ |
+| **op_api/A02** | 02_4.3_shape_verify | 4.3 | 输出Shape校验缺失 | op_api | ✅ |
+| **op_api/A03** | 03_2.1_mixdtype_removed | 2.1 | 混合精度组合被误删 | op_api | ⚠️ 分类存疑 |
+| **op_api/A04** | 04_3.2_empty_tensor | 3.2 | 空Tensor处理遗漏 | op_api | ✅ |
+| **op_api/A05** | 05_1.2_dtype_whitelist | 1.2 | dtype白名单遗漏 | op_api | 🔲 待评测 |
+| **op_api/A06** | 06_1.3_dtype_overwide | 1.3 | dtype白名单过宽 | op_api | 🔲 待评测 |
+| **op_api/A07** | 07_1.4_errorcode_masking | 1.4 | 错误码伪装 | op_api | 🔲 待评测 |
+| **op_api/A08** | 08_4.2_dim_check | 4.2 | 维度上限检查缺失 | op_api | 🔲 待评测 |
 
 ## 目录结构
 

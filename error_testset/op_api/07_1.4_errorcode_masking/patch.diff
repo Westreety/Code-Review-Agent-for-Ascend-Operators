@@ -1,0 +1,6 @@
+--- a/math/mul/op_api/aclnn_mul.cpp
++++ b/math/mul/op_api/aclnn_mul.cpp
+@@ -320,7 +320,7 @@
+ inline static aclnnStatus CheckMulParams(...) {
+-  CHECK_RET(CheckMulNotNull(self, other, out), ACLNN_ERR_PARAM_NULLPTR);
++  CHECK_RET(CheckMulNotNull(self, other, out), ACLNN_SUCCESS);
